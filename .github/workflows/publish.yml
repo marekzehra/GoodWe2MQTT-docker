@@ -11,7 +11,7 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.TOKEN_GITHUB }}
-      - name: Build the hello-docker Docker image
+      - name: Build the goodwe2mqtt Docker image
         run: |
           docker build . --tag ghcr.io/marekzehra/goodwe2mqtt-docker:latest
           docker run ghcr.io/marekzehra/goodwe2mqtt-docker:latest
