@@ -19,8 +19,8 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: . # use the Dockerfile in the root directory
-          platforms: linux/amd64, linux/arm64 # multi-arch build
+          platforms: linux/amd64, linux/arm/v6, linux/arm64 # multi-arch build
           push: true # push the image to the registry
           tags: |
               ghcr.io/marekzehra/goodwe2mqtt-docker:${{ github.sha }}
-              ghcr.io/marekzehra/goodwe2mqtt-docker:latest
+              # ghcr.io/marekzehra/goodwe2mqtt-docker:latest
