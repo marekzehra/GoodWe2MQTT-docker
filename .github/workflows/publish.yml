@@ -15,15 +15,12 @@ jobs:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
           password: ${{ secrets.TOKEN_GITHUB }}
-      # - name: Build the goodwe2mqtt Docker image
-      #   run: |
-      #     docker build . --tag ghcr.io/marekzehra/goodwe2mqtt-docker:latest
-      #     docker run ghcr.io/marekzehra/goodwe2mqtt-docker:latest
-      #     docker push ghcr.io/marekzehra/goodwe2mqtt-docker:latest
       - name: Build and push
         uses: docker/build-push-action@v4
         with:
           context: . # use the Dockerfile in the root directory
           platforms: linux/amd64, linux/arm64 # multi-arch build
           push: true # push the image to the registry
-          tags: ghcr.io/${{ github.repository }}:${{ github.ref_name }} # tag the image with the branch name
+          tags: |
+              ghcr.io/marekzehra/goodwe2mqtt-docker:${{ github.sha }}
+              ghcr.io/marekzehra/goodwe2mqtt-docker:latest
