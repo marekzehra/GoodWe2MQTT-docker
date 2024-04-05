@@ -16,7 +16,7 @@ from logger import log
 #import aioinflux
 from goodwe.inverter import OperationMode 
 
-config_file = "/goodwe2mqtt/goodwe2mqtt.yaml"
+config_file = "goodwe2mqtt.yaml"
 
 # this function dumps runtime_data to JSON file, filename contains date and time
 def dump_to_json(runtime_data):

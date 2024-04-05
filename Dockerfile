@@ -1,11 +1,10 @@
 FROM python:3
 
-WORKDIR /usr/src/app
+WORKDIR /goodwe2mqtt
 
-COPY GoodWe2MQTT .
+COPY GoodWe2MQTT /usr/src/app
 
-RUN pip3 install --no-cache-dir -r requirements.txt
+RUN pip3 install --no-cache-dir -r /usr/src/app/requirements.txt
 ### create log and config dir
-RUN mkdir -p /goodwe2mqtt
 
-CMD [ "python3", "./goodwe2mqtt.py" ]
+CMD [ "python3", "/usr/src/app/goodwe2mqtt.py" ]
